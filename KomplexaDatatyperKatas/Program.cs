@@ -83,13 +83,17 @@ namespace KomplexaDatatyperKatas
                     Console.WriteLine("What would u like to order? ");
                     Console.WriteLine("(0) to return to menu.");
                     var t = Convert.ToString(Console.ReadLine());
-                    if (t == "0")
+                    if (t == "0" || t == null || t == "")  
                     {
                         continue;
                     }
-                    else if (!uniqueList.Contains(t.ToLower()))
+                    if (!uniqueList.Contains(t.ToLower()) && t != "")
                     {
                         uniqueList.Add(t.ToLower());
+                    }
+
+                    if (t != "" && t!="0")
+                    {
                         listOfOrders.Add(new Order(t.ToLower()));
                         allItemsList.Add(t.ToLower());
                     }
@@ -117,7 +121,7 @@ namespace KomplexaDatatyperKatas
                 {
                     foreach (var VARIABLE in listOfOrders)
                     {
-                        Console.WriteLine($"order of {VARIABLE.Name} was placed {VARIABLE._TimeOfOrder.ToLongDateString()}" +
+                        Console.WriteLine($"{VARIABLE.Name} was ordered {VARIABLE._TimeOfOrder.ToLongDateString()}" +
                                           $" at {VARIABLE._TimeOfOrder.ToShortTimeString()}\n");
                     }
                     
