@@ -12,50 +12,71 @@ namespace KomplexaDatatyperKatas
         static void Main(string[] args)
         {
             List<Order> listOfOrders = new List<Order>();
-            List<String> diffItems = new List<string>();
-            
+            List<String> allItemsList = new List<string>();
+            List<string> uniqueList = new List<string>();
 
-
+            bool b = true;
             while (true)
             {
+                int choice = 0;
                 Console.WriteLine("1: Add an electric bicycle");
                 Console.WriteLine("2: Add a trampoline");
                 Console.WriteLine("3: Add a bouquet");
                 Console.WriteLine("4: Add something else");
                 Console.WriteLine("5: Show orders");
-                Console.WriteLine("6: Print different items that was ordered");
+                Console.WriteLine("6: Print different items and amounts that was ordered");
                 Console.WriteLine("7: Exit without placing order");
                 Console.WriteLine("8: Get amount of orders");
                 Console.WriteLine("9: Time wich last order was created:");
 
                 Console.Write("Type option and press enter:");
-                int choice = int.Parse(Console.ReadLine());
+                while (true)
+                {
+                    try
+                    {
+                        choice = int.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch
+                    {
+                        
+                        Console.WriteLine("\nInvalid choice. Please retry.");
+                        Console.Write("Type option and press enter:");
+                    }
+                } 
 
                 Console.Clear();
 
                 if (choice == 1)
                 {
                     listOfOrders.Add(new Order("electric bicycle"));
-                    if (!diffItems.Contains("electric bicycle"))
+                    allItemsList.Add("electric bicycle");
+                    if (!uniqueList.Contains("electric bicycle"))
                     {
-                        diffItems.Add("electric bicycle");
+                        uniqueList.Add("electric bicycle");
                     }
+
                 }
                 else if (choice == 2)
                 {
                     listOfOrders.Add(new Order("trampoline"));
-                    if (!diffItems.Contains("trampoline"))
+                    allItemsList.Add("trampoline");
+                    if (!uniqueList.Contains("trampoline"))
                     {
-                        diffItems.Add("trampoline");
+                        uniqueList.Add("trampoline");
                     }
+
+
                 }
                 else if (choice == 3)
                 {
                     listOfOrders.Add(new Order("bouquet"));
-                    if (!diffItems.Contains("bouquet"))
+                    allItemsList.Add("bouquet");
+                    if (!uniqueList.Contains("bouquet"))
                     {
-                        diffItems.Add("bouquet");
+                        uniqueList.Add("bouquet");
                     }
+
                 }
                 else if (choice == 4)
                 {
@@ -66,12 +87,13 @@ namespace KomplexaDatatyperKatas
                     {
                         continue;
                     }
-                    else
-                        listOfOrders.Add(new Order(t.ToLower()));
-                    if (!diffItems.Contains(t.ToLower()))
+                    else if (!uniqueList.Contains(t.ToLower()))
                     {
-                        diffItems.Add(t.ToLower());
+                        uniqueList.Add(t.ToLower());
+                        listOfOrders.Add(new Order(t.ToLower()));
+                        allItemsList.Add(t.ToLower());
                     }
+                    else
                     Console.Clear();
                 }
                 else if (choice == 5)
@@ -82,8 +104,14 @@ namespace KomplexaDatatyperKatas
                 }
                 else if (choice == 6)
                 {
-                    diffItems.ForEach(x => Console.WriteLine(x));
-                    Console.WriteLine();
+                    
+                    foreach (var VARIABLE in uniqueList)
+                    {
+                       var count = allItemsList.FindAll(x => x.Contains(VARIABLE)).Count;
+                        Console.WriteLine($"{count} orders of {VARIABLE} has been made!");
+                       
+                    }
+                   
                 }
 
                 else if (choice == 7)
@@ -109,40 +137,6 @@ namespace KomplexaDatatyperKatas
                 }
 
             }
-            //bool b =true;
-            //while (b)
-            //{
-            //    switch (choice)
-            //    {
-            //        case 1:
-            //            listOfOrders.Add(new Order("electric bicycle"));
-            //            break;
-            //        case 2:
-            //            listOfOrders.Add(new Order("trampoline"));
-            //            break;
-            //        case 3:
-            //            listOfOrders.Add(new Order("bouquet"));
-            //            break;
-            //        case 4:
-            //            Console.WriteLine("What would you like to order?");
-            //            var item = Console.ReadLine();
-            //            listOfOrders.Add(new Order(item.ToString()));
-            //            break;
-            //        case 5:
-            //            listOfOrders.ForEach(x => Console.WriteLine(x));
-            //            break;
-            //        case 6:
-            //            Console.WriteLine("??????");
-            //            break;
-            //        case 7:
-            //            b = false;
-            //            break;
-            //        default:
-            //            Console.WriteLine("Cannot understand ur choice");
-            //            break;
-
-            //    }
-            //}
         }
 
     }
