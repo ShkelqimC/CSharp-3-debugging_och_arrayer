@@ -117,8 +117,8 @@ namespace KomplexaDatatyperKatas
                 {
                     foreach (var VARIABLE in listOfOrders)
                     {
-                        Console.WriteLine($"order of {VARIABLE.Name} was placed the {VARIABLE.timeOfOrder.ToLongDateString()}" +
-                                          $" {VARIABLE.timeOfOrder.ToShortTimeString()}");
+                        Console.WriteLine($"order of {VARIABLE.Name} was placed {VARIABLE._TimeOfOrder.ToLongDateString()}" +
+                                          $" at {VARIABLE._TimeOfOrder.ToShortTimeString()}\n");
                     }
                     
                 }

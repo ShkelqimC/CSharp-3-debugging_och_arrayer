@@ -12,8 +12,15 @@ namespace KomplexaDatatyperKata
     {
         private int _orderNumber = 0;
         public string Name;
-        public DateTime timeOfOrder;
+        private DateTime timeOfOrder;
         public static int amountOfOrders;
+
+
+        public DateTime _TimeOfOrder
+        {
+            get { return timeOfOrder;}
+        }
+
 
 
         public Order(string name)
