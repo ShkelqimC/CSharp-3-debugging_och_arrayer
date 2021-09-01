@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using KomplexaDatatyperKata;
 using System.Threading;
 
@@ -25,9 +26,8 @@ namespace KomplexaDatatyperKatas
                 Console.WriteLine("4: Add something else");
                 Console.WriteLine("5: Show orders");
                 Console.WriteLine("6: Print different items and amounts that was ordered");
-                Console.WriteLine("7: Exit without placing order");
-                Console.WriteLine("8: Get amount of orders");
-                Console.WriteLine("9: Time wich last order was created:");
+                Console.WriteLine("7: Get orders and time they were placed");
+                Console.WriteLine("8: Exit menu");
 
                 Console.Write("Type option and press enter:");
                 while (true)
@@ -93,7 +93,6 @@ namespace KomplexaDatatyperKatas
                         listOfOrders.Add(new Order(t.ToLower()));
                         allItemsList.Add(t.ToLower());
                     }
-                    else
                     Console.Clear();
                 }
                 else if (choice == 5)
@@ -109,30 +108,27 @@ namespace KomplexaDatatyperKatas
                     {
                        var count = allItemsList.FindAll(x => x.Contains(VARIABLE)).Count;
                         Console.WriteLine($"{count} orders of {VARIABLE} has been made!");
+                        Console.WriteLine();
                        
                     }
                    
                 }
-
-                else if (choice == 7)
+                else if (choice==7)
                 {
-                    Console.WriteLine("Are you sure? ");
-                    var answer = Convert.ToString(Console.ReadLine());
-                    if (answer.ToLower() == "yes" || answer.ToLower() == "ye" || answer.ToLower() == "y")
+                    foreach (var VARIABLE in listOfOrders)
                     {
-                        break;
+                        Console.WriteLine($"order of {VARIABLE.Name} was placed the {VARIABLE.timeOfOrder.ToLongDateString()}" +
+                                          $" {VARIABLE.timeOfOrder.ToShortTimeString()}");
                     }
-                
-                }
-                else if (choice==8)
-                {
-                    Console.WriteLine(Order.amountOfOrders);
-                    Console.ReadKey();
                     
+                }
+                else if (choice == 8)
+                {
+                    break;
                 }
                 else
                 {
-                    Console.WriteLine("Invalid choice, retry.");
+                    Console.WriteLine("Invalid choice, retry.\n");
 
                 }
 

@@ -12,17 +12,16 @@ namespace KomplexaDatatyperKata
     {
         private int _orderNumber = 0;
         public string Name;
-        private static DateTime _timeOfOrder;
-        private double _totalCost;
+        public DateTime timeOfOrder;
         public static int amountOfOrders;
 
 
         public Order(string name)
         {
             Name = name;
+            timeOfOrder = DateTime.Now;
             amountOfOrders++;
             Console.WriteLine($"{amountOfOrders} total order(s) made!\n");
-            _timeOfOrder = DateTime.Now;
             _orderNumber = amountOfOrders;
         }
         //public static int GenerateOrderNumber()
