@@ -103,7 +103,9 @@ namespace KomplexaDatatyperKatas
                 {
                     Console.WriteLine("List of ordered items: ");
                    listOfOrders.ForEach(x=> Console.WriteLine(x.Name));
-                   Console.WriteLine();
+                   Console.WriteLine("Press any key to return to menu");
+                   Console.ReadKey();
+                   Console.Clear();
                 }
                 else if (choice == 6)
                 {
@@ -113,9 +115,11 @@ namespace KomplexaDatatyperKatas
                        var count = allItemsList.FindAll(x => x.Contains(VARIABLE)).Count;
                         Console.WriteLine($"{count} orders of {VARIABLE} has been made!");
                         Console.WriteLine();
-                       
                     }
-                   
+                    Console.WriteLine("Press any key to return to menu");
+                    Console.ReadKey();
+                    Console.Clear();
+
                 }
                 else if (choice==7)
                 {
