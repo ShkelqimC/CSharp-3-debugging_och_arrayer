@@ -20,13 +20,13 @@ namespace KomplexaDatatyperKatas
             while (true)
             {
                 int choice = 0;
-                Console.WriteLine("1: Add an electric bicycle");
-                Console.WriteLine("2: Add a trampoline");
-                Console.WriteLine("3: Add a bouquet");
-                Console.WriteLine("4: Add something else");
-                Console.WriteLine("5: Show orders");
-                Console.WriteLine("6: Print different items and amounts that was ordered");
-                Console.WriteLine("7: Get orders and time they were placed");
+                Console.WriteLine("1: Order an electric bicycle");
+                Console.WriteLine("2: Order a trampoline order");
+                Console.WriteLine("3: Order a bouquet");
+                Console.WriteLine("4: Order something else");
+                Console.WriteLine("5: Show all orders");
+                Console.WriteLine("6: Show how many times each item was ordered");
+                Console.WriteLine("7: Show time of order and item ordered");
                 Console.WriteLine("8: Exit menu");
 
                 Console.Write("Type option and press enter:");
@@ -119,12 +119,15 @@ namespace KomplexaDatatyperKatas
                 }
                 else if (choice==7)
                 {
+                    Console.Clear();
                     foreach (var VARIABLE in listOfOrders)
                     {
                         Console.WriteLine($"{VARIABLE.Name} was ordered {VARIABLE._TimeOfOrder.ToLongDateString()}" +
                                           $" at {VARIABLE._TimeOfOrder.ToShortTimeString()}\n");
                     }
-                    
+
+                    Console.WriteLine("Press any key to return to menu");
+                    Console.ReadKey();
                 }
                 else if (choice == 8)
                 {
