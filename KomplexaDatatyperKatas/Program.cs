@@ -102,7 +102,7 @@ namespace KomplexaDatatyperKatas
                 else if (choice == 5)
                 {
                     Console.WriteLine("List of ordered items: ");
-                   listOfOrders.ForEach(x=> Console.WriteLine(x.Name));
+                   listOfOrders.ForEach(x=> Console.WriteLine(x.Name + "\n"));
                    Console.WriteLine("Press any key to return to menu");
                    Console.ReadKey();
                    Console.Clear();
