@@ -21,11 +21,11 @@ namespace Tests.ArrayKatas
         [InlineData(new[] { 0, 1 }, new[] { 1, 0 })]
         [InlineData(new[] { 0, 1, 2, 3, 4 }, new[] { 4, 3, 2, 1, 0 })]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, new[] { 6, 5, 4, 3, 2, 1 })]
-        public void ArrayReverserTest(int[] original, int[] rightAnswer)
+        public void ArrayReverserTest(int[] original, int[] expected)
         {
-            int[] reversed = Reverser.GetReverse(original);
+            int[] actual = Reverser.GetReverse(original);
 
-            Assert.Equal(rightAnswer, reversed);
+            Assert.Equal(expected, actual);
         }
     }
 }

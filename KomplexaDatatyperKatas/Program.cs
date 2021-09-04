@@ -12,6 +12,12 @@ namespace KomplexaDatatyperKatas
     {
         static void Main(string[] args)
         {
+           MakeOrder();
+
+        }
+
+        public static void MakeOrder()
+        {
             List<Order> listOfOrders = new List<Order>();
             List<String> allItemsList = new List<string>();
             List<string> uniqueList = new List<string>();
@@ -39,11 +45,11 @@ namespace KomplexaDatatyperKatas
                     }
                     catch
                     {
-                        
+
                         Console.WriteLine("\nInvalid choice. Please retry.");
                         Console.Write("Type option and press enter:");
                     }
-                } 
+                }
 
                 Console.Clear();
 
@@ -83,7 +89,7 @@ namespace KomplexaDatatyperKatas
                     Console.WriteLine("What would u like to order? ");
                     Console.WriteLine("(0) to return to menu.");
                     var t = Convert.ToString(Console.ReadLine());
-                    if (t == "0" || t == null || t == "")  
+                    if (t == "0" || t == null || t == "")
                     {
                         continue;
                     }
@@ -92,7 +98,7 @@ namespace KomplexaDatatyperKatas
                         uniqueList.Add(t.ToLower());
                     }
 
-                    if (t != "" && t!="0")
+                    if (t != "" && t != "0")
                     {
                         listOfOrders.Add(new Order(t.ToLower()));
                         allItemsList.Add(t.ToLower());
@@ -102,17 +108,17 @@ namespace KomplexaDatatyperKatas
                 else if (choice == 5)
                 {
                     Console.WriteLine("List of ordered items: ");
-                   listOfOrders.ForEach(x=> Console.WriteLine(x.Name + "\n"));
-                   Console.WriteLine("Press any key to return to menu");
-                   Console.ReadKey();
-                   Console.Clear();
+                    listOfOrders.ForEach(x => Console.WriteLine(x.Name + "\n"));
+                    Console.WriteLine("Press any key to return to menu");
+                    Console.ReadKey();
+                    Console.Clear();
                 }
                 else if (choice == 6)
                 {
-                    
+
                     foreach (var VARIABLE in uniqueList)
                     {
-                       var count = allItemsList.FindAll(x => x.Contains(VARIABLE)).Count;
+                        var count = allItemsList.FindAll(x => x.Contains(VARIABLE)).Count;
                         Console.WriteLine($"{count} orders of {VARIABLE} has been made!");
                         Console.WriteLine();
                     }
@@ -121,7 +127,7 @@ namespace KomplexaDatatyperKatas
                     Console.Clear();
 
                 }
-                else if (choice==7)
+                else if (choice == 7)
                 {
                     Console.Clear();
                     foreach (var VARIABLE in listOfOrders)
