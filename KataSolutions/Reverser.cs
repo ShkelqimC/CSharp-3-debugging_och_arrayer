@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace KataSolutions
 {
@@ -18,17 +19,18 @@ namespace KataSolutions
 
         public static int[] GetReverse(int[] original)
         {
-            int[] tempArray = new int[original.Length];
-            Array.Copy(original, tempArray, original.Length);
-            for (int i = 0; i < original.Length / 2; i++)
-            {
-                int tempo = tempArray[i];
-                tempArray[i] = tempArray[tempArray.Length - 1 - i];
-                tempArray[tempArray.Length - 1 - i] = tempo;
+            return original.Select(x => x.ToString()).Reverse().Select(x => Convert.ToInt32(x.ToString())).ToArray();
+            //int[] tempArray = new int[original.Length];
+            //Array.Copy(original, tempArray, original.Length);
+            //for (int i = 0; i < original.Length / 2; i++)
+            //{
+            //    int tempo = tempArray[i];
+            //    tempArray[i] = tempArray[tempArray.Length - 1 - i];
+            //    tempArray[tempArray.Length - 1 - i] = tempo;
 
-            }
+            //}
 
-            return tempArray;
+            //return tempArray;
         }
     }
 }
